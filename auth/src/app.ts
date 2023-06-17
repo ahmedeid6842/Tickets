@@ -1,6 +1,7 @@
 import "express-async-errors";
 import express from "express";
 import cookiePrser from "cookie-parser";
+import cors from "cors";
 
 import { currentUserRouter } from "./routes/current-user";
 import { signinRouter } from "./routes/signin";
@@ -9,6 +10,11 @@ import { signupRouter } from "./routes/signup";
 
 const app = express();
 app.set("trust proxy", true);
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(express.json());
 app.use(cookiePrser());
 

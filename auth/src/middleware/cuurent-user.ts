@@ -19,7 +19,6 @@ export const currentUser = (
   res: Response,
   next: NextFunction
 ) => {
-  console.log();
   if (!req.cookies?.jwt) {
     return next();
   }
