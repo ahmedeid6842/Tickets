@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: tickets
-          image: ahmedeid6842/tickets
+          image: ahmedeid6842/tickets:latest
           env:
             - name: MONGO_URI 
               value: "mongodb://tickets-mongo-srv:27017/tickets"

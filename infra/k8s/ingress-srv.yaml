@@ -3,25 +3,33 @@ kind: Ingress
 metadata:
   name: ticketing-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /api/users/$2
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   ingressClassName: nginx
   rules:
     - host: ticketing.dev
       http:
         paths:
-          - path: /api/users(/|$)(.*)
+          - path: /api/users/?(.*)
             pathType: Prefix
             backend:
               service:
                 name: auth-srv
                 port:
                   number: 3000
-# TODO: in Future make the path / redirect to 404 page instead of nginx
+          - path: /api/tickets/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: tickets-srv
+                port:
+                  number: 3000
+          # TODO: in Future make the path / redirect to 404 page instead of nginx
           - path: /
             pathType: Prefix
             backend:
-              service: 
+              service:
                 name: nginx
                 port:
                   number: 80
