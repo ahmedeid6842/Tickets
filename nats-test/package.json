@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "publish": "nodemon src/publisher.ts"
+    "publish": "nodemon src/publisher.ts",
+    "listen": "nodemon src/listener.ts"
   },
   "keywords": [],
   "author": "",
