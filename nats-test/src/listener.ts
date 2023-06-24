@@ -23,7 +23,7 @@ stan.on("connect", () => {
 
   const subsciption = stan.subscribe(
     "ticket:created",
-    "listern-queue-group",
+    "listener-queue-group",
     options
   );
 
