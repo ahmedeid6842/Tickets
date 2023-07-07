@@ -2,6 +2,14 @@ import nats, { Stan } from "node-nats-streaming";
 
 class NatsWrapper {
   private _client?: Stan;
+
+  get client() {
+    if (!this._client) {
+      throw new Error("Cann't access NATS client before connecting");
+    }
+    return this._client;
+  }
+  
   connect(clusterId: string, clientId: string, url: string) {
     this._client = nats.connect(clusterId, clientId, { url });
 
@@ -18,4 +26,4 @@ class NatsWrapper {
   }
 }
 
-export const natsWrapper = new NatsWrapper(); 
+export const natsWrapper = new NatsWrapper();
