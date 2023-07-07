@@ -1,0 +1,23 @@
+{
+  "name": "@aetickets/common",
+  "version": "1.0.8",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rmdir ./build/*",
+    "build": "npm run clean && tsc",
+    "pub": "git add . && git commit -m \"Updates\" && npm version patch && npm run build && npm publish"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-nats-streaming": "^0.3.2"
+  },
+  "devDependencies": {
+    "@types/events": "^3.0.0",
+    "@types/node": "^20.4.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}
