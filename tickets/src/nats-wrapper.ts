@@ -9,13 +9,13 @@ class NatsWrapper {
     }
     return this._client;
   }
-  
+
   connect(clusterId: string, clientId: string, url: string) {
     this._client = nats.connect(clusterId, clientId, { url });
 
     return new Promise<void>((resolve, reject) => {
       this._client?.on("connect", () => {
-        console.log("connected to NATS 📩");
+        console.log("connected to NATS 🔊 📩");
         resolve();
       });
 

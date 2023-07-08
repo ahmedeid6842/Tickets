@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "npm run build && ts-node src/index.ts",
     "dev": "nodemon src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aetickets/common": "^1.0.8",
+    "@aetickets/common": "^1.0.11",
     "@types/cookie-parser": "^1.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
