@@ -17,7 +17,7 @@ router.get(
     if (order.userId !== req.currentUser!.id) {
       return res
         .status(403)
-        .send({ message: "un authorized to edit this ticket" });
+        .send({ message: "un authorized to get this order" });
     }
 
     res.send(order);

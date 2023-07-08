@@ -11,20 +11,20 @@ router.post("/api/orders", requireAuth, async (req: Request, res: Response) => {
   // check if the ticket is already exist or not
   const ticket = await Ticket.findById(ticketId);
   if (!ticket) {
-    return res.status(404).send("No Ticket found");
+    return res.status(404).send({ message: "No Ticket found" });
   }
 
-  // check if the ticket is already reserved 
+  // check if the ticket is already reserved
   const isReserved = await ticket.isReserved();
   if (isReserved) {
-    return res.status(400).send("Ticket is already reserved");
+    return res.status(400).send({ message: "Ticket is already reserved" });
   }
 
   // set the expiration date for the ticket
   const expiration = new Date();
   expiration.setSeconds(expiration.getSeconds() + 15 * 60);
 
-  // Build the ticket order 
+  // Build the ticket order
   const order = Order.build({
     userId: req.currentUser!.id,
     status: OrderStatus.Created,
