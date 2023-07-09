@@ -4,3 +4,4 @@ export * from "./events/event-interfaces/ticket-created-event";
 export * from "./events/event-interfaces/ticket-updated-event";
 export * from "./events/subjects";
 export * from "./events/event-interfaces/order-created-event";
+export * from "./events/event-interfaces/order-cancelled-event";
