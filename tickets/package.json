@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aetickets/common": "^1.0.11",
+    "@aetickets/common": "^1.0.18",
     "@types/cookie-parser": "^1.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -21,6 +21,7 @@
     "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.21",
     "mongoose": "^7.3.0",
+    "mongoose-update-if-current": "^1.4.0",
     "morgan": "^1.10.0",
     "node-nats-streaming": "^0.3.2"
   },
