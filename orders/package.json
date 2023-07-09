@@ -1,5 +1,5 @@
 {
-  "name": "tickets",
+  "name": "orders",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aetickets/common": "^1.0.16",
+    "@aetickets/common": "^1.0.17",
     "@types/cookie-parser": "^1.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",

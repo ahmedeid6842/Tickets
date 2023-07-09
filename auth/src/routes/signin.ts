@@ -23,7 +23,7 @@ route.post("/api/users/signin", async (req: Request, res: Response) => {
     }
 
     let accessToken = jwt.sign(
-      { _id: user._id, userName: user.userName },
+      { userId: user._id, userName: user.userName },
       process.env.JWT_KEY,
       { expiresIn: "30m" }
     );

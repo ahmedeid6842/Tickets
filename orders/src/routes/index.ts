@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/api/orders", async (req: Request, res: Response) => {
   const orders = await Order.find({
-    userId: req.currentUser!.id,
+    userId: req.currentUser!.userId,
   }).populate("ticket");
 
   res.send(orders);

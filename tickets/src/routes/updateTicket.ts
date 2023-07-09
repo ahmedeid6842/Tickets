@@ -12,7 +12,7 @@ router.put("/api/tickets/:id", async (req: Request, res: Response) => {
     return res.status(404).send({ message: "ticket not found" });
   }
 
-  if (ticket.userId !== req.currentUser!.id) {
+  if (ticket.userId !== req.currentUser!.userId) {
     return res
       .status(403)
       .send({ message: "un authorized to edit this ticket" });

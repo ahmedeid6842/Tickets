@@ -28,7 +28,7 @@ router.post("/api/orders", requireAuth, async (req: Request, res: Response) => {
 
   // Build the ticket order
   const order = Order.build({
-    userId: req.currentUser!.id,
+    userId: req.currentUser!.userId,
     status: OrderStatus.Created,
     expiresAt: expiration,
     ticket,

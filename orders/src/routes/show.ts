@@ -14,7 +14,7 @@ router.get(
       return res.status(404).send({ message: "No order found" });
     }
 
-    if (order.userId !== req.currentUser!.id) {
+    if (order.userId !== req.currentUser!.userId) {
       return res
         .status(403)
         .send({ message: "un authorized to get this order" });
