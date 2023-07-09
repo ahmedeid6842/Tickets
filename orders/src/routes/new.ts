@@ -2,6 +2,8 @@ import express, { Request, Response } from "express";
 import { requireAuth } from "../middleware/requireAuth";
 import { Ticket } from "../models/ticket";
 import { Order, OrderStatus } from "../models/order";
+import { OrderCreatedPublisher } from "../events/publisher/order-created-publisher";
+import { natsWrapper } from "../nats-wrapper";
 
 const router = express.Router();
 
@@ -33,6 +35,18 @@ router.post("/api/orders", requireAuth, async (req: Request, res: Response) => {
   });
   await order.save();
 
+  //publish created event
+  new OrderCreatedPublisher(natsWrapper.client).publish({
+    id: order.id,
+    status: order.status,
+    userId: order.userId,
+    expiresAt: order.expiresAt.toISOString(),
+    ticket: {
+      id: ticket.id,
+      price: ticket.price,
+    },
+  });
+  
   res.status(201).send(order);
 });
 
