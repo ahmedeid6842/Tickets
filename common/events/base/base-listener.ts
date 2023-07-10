@@ -12,7 +12,7 @@ export abstract class Listener<T extends Event> {
   abstract onMessage(data: T['data'], msg: Message): void;
   protected ackWait = 5 * 1000; // 5 seconds
 
-  constructor(private cilent: Stan) {}
+  constructor(protected cilent: Stan) {}
 
   subscriptionOptions() {
     return this.cilent
