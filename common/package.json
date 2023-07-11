@@ -1,6 +1,6 @@
 {
   "name": "@aetickets/common",
-  "version": "1.0.20",
+  "version": "1.0.22",
   "description": "",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",

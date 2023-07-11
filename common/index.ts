@@ -7,3 +7,4 @@ export * from "./events/subjects";
 export * from "./events/event-interfaces/order-created-event";
 export * from "./events/event-interfaces/order-cancelled-event";
 export * from "./events/event-interfaces/expiration-completed-event";
+export * from "./events/event-interfaces/payment-created-events";
