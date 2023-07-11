@@ -36,6 +36,11 @@ spec:
                 secretKeyRef:
                   name: mysecret
                   key: SALT_FACTORY
+            - name: STRIPE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: mysecret
+                  key: STRIPE_KEY
 ---
 apiVersion: v1
 kind: Service

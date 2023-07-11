@@ -4,6 +4,7 @@ import morgan from "morgan";
 import cors from "cors";
 import cookiePrser from "cookie-parser";
 import { currentUser } from "./middleware/currentUser";
+import { createPaymentRouter } from "./routes/new";
 
 const app = express();
 
@@ -19,6 +20,6 @@ app.use(morgan("dev"));
 app.use(cookiePrser());
 
 app.use(currentUser);
-
+app.use(createPaymentRouter);
 
 export { app };
