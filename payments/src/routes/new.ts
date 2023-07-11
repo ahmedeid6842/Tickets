@@ -3,6 +3,9 @@ import { OrderStatus } from "@aetickets/common";
 import { requireAuth } from "../middleware/requireAuth";
 import { Order } from "../models/order";
 import { stripe } from "../stripe";
+import { Payment } from "../models/payment";
+import { PaymentCreatePublisher } from "../events/publishers/payment-created-publisher";
+import { natsWrapper } from "../nats-wrapper";
 
 const router = express.Router();
 
@@ -24,13 +27,28 @@ router.post("/api/payments", async (req: Request, res: Response) => {
       .send({ message: "Payment cannot be made for a cancelled order." });
   }
 
-  await stripe.charges.create({
+  const paymentStripeInfo = await stripe.charges.create({
     currency: "usd",
     amount: order.price * 100,
     source: token,
   });
 
-  return res.send({success:true, message: "Your purchase successed!"})
+  const payment = Payment.build({
+    orderId,
+    stripeId: paymentStripeInfo.id,
+  });
+
+  new PaymentCreatePublisher(natsWrapper.client).publish({
+    id: payment.id,
+    orderId: payment.orderId,
+    stripeId: payment.stripeId,
+  });
+
+  return res.send({
+    success: true,
+    message: "Your purchase successed!",
+    paymentId: payment.id,
+  });
 });
 
-export {router as createPaymentRouter}
+export { router as createPaymentRouter };
