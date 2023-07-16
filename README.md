@@ -30,6 +30,7 @@ The Ticket App Microservices Backend is a Node.js Typescript-based backend that 
 The code is written in Typescript, making use of interfaces, classes, and generators to ensure a well-organized and easily maintainable codebase. Kubernetes service and deployment were used to create a deployment for each service and its database and to build ingress and set up the NATS streaming service. This Ticket App Microservices Backend provides a reliable and efficient backend for your ticket app needs. The Ticket App Microservices Backend is a reliable and efficient solution for ticket app needs, with Mongoose version numbers utilized to solve concurrency issues between services.
 </p>
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Getting Started <a name="getting-started"></a>
 
@@ -57,8 +58,9 @@ To run this project, you will need to add the following environment variables to
 _Note: All environment variables must be encoded in [base64 format](https://www.base64encode.org/)._
 
 ### Setup ⬇️ <a name="setup"></a>
+1. Setup Ingress-Nginx Controller, refer to the [documentation](https://kubernetes.github.io/ingress-nginx/deploy/) for instructions. This will guide you through the process of setting it up correctly to handle incoming traffic.
 
-Clone this repository to your desired folder:
+2. Clone this repository to to your preferred directory:
 
 ```bash
 cd my-folder
@@ -91,6 +93,8 @@ kubectl get all
 
 > _Note: the reason you are receiving `{"currentUser":null}` is because you are not currently logged in. However, this indicates that the services are operational and functioning properly._ 
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 🔍 API Refernce <a name="api-reference"></a>
 
 ### Postman 🤩 
@@ -106,12 +110,15 @@ Here is the link to the Postman documentation for Tickets: **[Postman Docs - Tic
 
  <p align="center"><img src="https://github.com/ahmedeid6842/Code-Base/assets/57197702/9d3c0317-6115-42bb-bb39-0733573e36d1" alt="Infrastructure"/> </p>
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👤 Author <a name="author"></a>
 **Ahmed Eid 🙋‍♂️**
 - Github: [@ahmedeid6842](https://github.com/ahmedeid6842/)
 - LinkedIn : [Ahmed Eid](https://www.linkedin.com/in/ahmed-eid-0018571b1/)
 - Twitter: [@ahmedeid2684](https://twitter.com/ahmedeid2684)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🤝 Contributing <a name="contribution"></a>
 
@@ -140,5 +147,5 @@ If you find this project helpful, I would greatly appreciate it if you could lea
 
 5. There is always something new to learn 👨‍💻.
 
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
