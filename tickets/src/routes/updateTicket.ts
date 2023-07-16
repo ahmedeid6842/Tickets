@@ -2,10 +2,11 @@ import express, { Request, Response } from "express";
 import { Ticket } from "../models/tickets";
 import { TicketUpdatedPublisher } from "../events/publishers/ticket-updated-publisher";
 import { natsWrapper } from "../nats-wrapper";
+import { requireAuth } from "../middleware/requireAuth";
 
 const router = express.Router();
 
-router.put("/api/tickets/:id", async (req: Request, res: Response) => {
+router.put("/api/tickets/:id", requireAuth,async (req: Request, res: Response) => {
   const ticket = await Ticket.findById(req.params.id);
 
   if (!ticket) {

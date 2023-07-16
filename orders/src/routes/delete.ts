@@ -2,16 +2,17 @@ import express, { Request, Response } from "express";
 import { Order, OrderStatus } from "../models/order";
 import { OrderCancelledPublisher } from "../events/publisher/order-cancelled-publisher";
 import { natsWrapper } from "../nats-wrapper";
+import { requireAuth } from "../middleware/requireAuth";
 
 const router = express.Router();
 
-router.delete("/api/orders/:orderId", async (req: Request, res: Response) => {
+router.delete("/api/orders/:orderId",requireAuth, async (req: Request, res: Response) => {
   const { orderId } = req.params;
 
   const order = await Order.findById(orderId);
 
   if (!order) {
-    return res.status(404).send({ message: "No Ticket found" });
+    return res.status(404).send({ message: "No Order found" });
   }
   if (order.userId !== req.currentUser!.userId) {
     return res
