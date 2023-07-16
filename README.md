@@ -76,17 +76,29 @@ kubectl apply -f ./infra/k8s
 
 > After following the above instructions, the Kubernetes cluster should be up and running.
 
-- To check the healthy of the k8s cluster componenet and all of them should be in ready state run :  
+- To verify the health of all Kubernetes cluster components and ensure that they are in a ready state, you can run the following command in the terminal: 
 
 ```bash
 kubectl get all
 ```
 
-![kubectl state]()
+<p align="center"><img src="https://github.com/ahmedeid6842/Vending/assets/57197702/2b7aa64e-8c0c-4724-aa91-83d264694ce8" alt="cluster-health"/> </p>
 
-- Alright, it's showtime! 🔥 Hit `ticketing.dev` and BOOM! 💥 You should see the microservices working like a charm. ✨🧙‍♂️
+- Alright, it's showtime! 🔥 Hit `ticketing.dev/api/users/currentuser` and BOOM! 💥 You should see the microservices working like a charm. ✨🧙‍♂️
+
+<p align="center"><img src="https://github.com/ahmedeid6842/Vending/assets/57197702/c3d957c3-da45-4405-add9-3f4abcd20a2e" alt="Postman_Docs_GIF"/> </p>
+
+
+> _Note: the reason you are receiving `{"currentUser":null}` is because you are not currently logged in. However, this indicates that the services are operational and functioning properly._ 
 
 ## 🔍 API Refernce <a name="api-reference"></a>
+
+### Postman 🤩 
+Here is the link to the Postman documentation for Tickets: **[Postman Docs - Tickets](https://documenter.getpostman.com/view/10444163/2s946feY8x)**.
+
+ <p align="center"><img src="https://github.com/ahmedeid6842/Vending/assets/57197702/c1b1c78d-b5cb-4c73-96ef-36e75e4c4966" alt="Postman_Docs_GIF"/> </p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🏗️🔨 Architecture <a name="architecture"></a>
 
