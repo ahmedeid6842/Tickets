@@ -52,6 +52,6 @@ const start = async () => {
     return;
   }
 
-  app.listen(3000, () => console.log("payments: connected on port 3000 🕵️‍♂️"));
+  app.listen(3000, () => console.log("Orders: connected on port 3000 🕵️‍♂️"));
 };
 start();

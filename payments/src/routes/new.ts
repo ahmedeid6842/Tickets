@@ -9,7 +9,7 @@ import { natsWrapper } from "../nats-wrapper";
 
 const router = express.Router();
 
-router.post("/api/payments", async (req: Request, res: Response) => {
+router.post("/api/payments",requireAuth, async (req: Request, res: Response) => {
   const { token, orderId } = req.body;
   const order = await Order.findById(orderId);
 
@@ -27,15 +27,16 @@ router.post("/api/payments", async (req: Request, res: Response) => {
       .send({ message: "Payment cannot be made for a cancelled order." });
   }
 
-  const paymentStripeInfo = await stripe.charges.create({
-    currency: "usd",
-    amount: order.price * 100,
-    source: token,
-  });
+  // const paymentStripeInfo = await stripe.charges.create({
+  //   currency: "usd",
+  //   amount: order.price * 100,
+  //   source: token,
+  // });
 
   const payment = Payment.build({
     orderId,
-    stripeId: paymentStripeInfo.id,
+    stripeId: "skcfjuerhf45dadf3d" // this random string for testing purpose
+    // stripeId: paymentStripeInfo.id,
   });
 
   new PaymentCreatePublisher(natsWrapper.client).publish({
