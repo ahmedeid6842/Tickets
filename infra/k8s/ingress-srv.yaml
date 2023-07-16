@@ -32,6 +32,13 @@ spec:
                 name: orders-srv
                 port:
                   number: 3000
+          - path: /api/payments/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: payments-srv
+                port:
+                  number: 3000
           # TODO: in Future make the path / redirect to 404 page instead of nginx
           - path: /
             pathType: Prefix
