@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-![logo-no-background](https://github.com/ahmedeid6842/Tickets/assets/57197702/f3c5c070-67ee-430e-a479-5855b674a7d5)
+![logo-no-background](https://github.com/ahmedeid6842/Code-Base/assets/57197702/8898f229-8118-4c1c-8a0b-89a84c60f949)
 
 
 <h1 align="center">Tickets Microservices</h1>
@@ -89,6 +89,11 @@ kubectl get all
 ## 🔍 API Refernce <a name="api-reference"></a>
 
 ## 🏗️🔨 Architecture <a name="architecture"></a>
+
+- Presented here is the general infrastructure diagram for the ticket cluster, illustrating the communication channels utilized by the distinct services to interoperate with one another.
+
+ <p align="center"><img src="https://github.com/ahmedeid6842/Code-Base/assets/57197702/9d3c0317-6115-42bb-bb39-0733573e36d1" alt="Infrastructure"/> </p>
+
 
 ## 👤 Author <a name="author"></a>
 **Ahmed Eid 🙋‍♂️**
