@@ -13,6 +13,7 @@ export class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent
   subject: Subjects.ExpirationComplete = Subjects.ExpirationComplete;
   queueGroupName: string = queueGroupName;
   async onMessage(data: { orderId: string }, msg: Message): Promise<void> {
+  
     const order = await Order.findById(data.orderId).populate("ticket");
 
     if (!order) {
@@ -22,11 +23,12 @@ export class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent
     if (order.status === OrderStatus.Complete) {
       return msg.ack();
     }
-    
+
     order.set({
       status: OrderStatus.Cancelled,
     });
-
+    await order.save();
+    
     await new OrderCancelledPublisher(this.cilent).publish({
       id: order.id,
       version: order.version,
